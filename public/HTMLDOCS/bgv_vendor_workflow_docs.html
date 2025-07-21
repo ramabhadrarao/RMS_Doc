@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGV Vendor Workflow - Full Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        ul.field-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .field-list li {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border: 1px solid #e9ecef;
+            font-weight: bold;
+            color: #495057;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>BGV Vendor Workflow: Full Documentation</h1>
+            <p>A comprehensive guide for users and developers on the BGV Vendor creation process.</p>
+            <button class="download-button" onclick="downloadExcel()">Download All Input Fields (CSV)</button>
+        </div>
+
+        <div class="section" id="form-guide">
+            <h2>Form Sections &amp; Input Fields</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To capture all necessary details for a new BGV Vendor, from initial selection to contact persons and documentation.</p>
+            </div>
+            
+            <h3>1. Client Selection</h3>
+            <ul class="field-list">
+                <li>Select Client (Dropdown, Required)</li>
+            </ul>
+
+            <h3>2. Vendor Details</h3>
+            <ul class="field-list">
+                <li>Vendor Name (Text, Required)</li>
+                <li>Website (Text, Optional)</li>
+            </ul>
+
+    
+            <h3>3. BGV Vendor &amp; Address Details</h3>
+            <ul class="field-list">
+                <li>Address (Textarea)</li>
+                <li>Billing Address (Textarea)</li>
+            </ul>
+
+            <h3>4. Billing Information</h3>
+            <ul class="field-list">
+                <li>GST Number (Text)</li>
+                <li>Invoice Payment Terms (Number, in days)</li>
+            </ul>
+
+            <h3>5. Documents Section</h3>
+            <p>This section allows for uploading multiple documents. Each document entry has the following fields:</p>
+            <ul class="field-list">
+                <li>Document Name (Text)</li>
+                <li>Validity (Checkbox)</li>
+                <li>Start Date (Date, if validity is checked)</li>
+                <li>End Date (Date, if validity is checked)</li>
+                <li>File Upload (File)</li>
+            </ul>
+
+            <h3>6. Vendor SPOC (Single Point of Contact) Details</h3>
+            <p>Allows for adding multiple SPOCs for the vendor.</p>
+            <ul class="field-list">
+                <li>Name (Text)</li>
+                <li>Email (Email)</li>
+                <li>Phone (Phone)</li>
+                <li>Designation (Text)</li>
+                <li>Location (Text)</li>
+                <li>Status (Dropdown: Active/Inactive)</li>
+                <li>Functional Roles (Multi-select)</li>
+                <li>Accounts Handled (Multi-select, Optional)</li>
+            </ul>
+        </div>
+
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following JSON structure is recommended for storing BGV Vendor data in the database.</p>
+            </div>
+            
+            <h3>BGV Vendor JSON Structure</h3>
+            <pre><code>{
+  "client_id": "string",
+  "vendor_details": {
+    "name": "string",
+    "website": "string"
+  },
+  "address_details": {
+    "primary_address": "string",
+    "billing_address": "string"
+  },
+  "billing_information": {
+    "gst_number": "string",
+    "invoice_payment_terms": "number"
+  },
+  "documents": [
+    {
+      "document_name": "string",
+      "has_validity": "boolean",
+      "start_date": "date",
+      "end_date": "date",
+      "file_url": "string"
+    }
+  ],
+  "vendor_spocs": [
+    {
+      "name": "string",
+      "email": "string",
+      "phone": "string",
+      "designation": "string",
+      "location": "string",
+      "status": "string",
+      "functional_roles": ["string"],
+      "accounts_handled": ["string"]
+    }
+  ]
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function downloadExcel() {
+            const headers = [
+                "Section",
+                "Field Name",
+                "Type",
+                "Required"
+            ];
+            const data = [
+                ["Client Selection", "Client", "Dropdown", "Yes"],
+                ["Vendor Details", "Vendor Name", "Text", "Yes"],
+                ["Vendor Details", "Website", "Text", "No"],
+                ["Contact Information", "Name", "Text", "Yes"],
+                ["Contact Information", "Email", "Email", "Yes"],
+                ["Contact Information", "Phone", "Phone", "Yes"],
+                ["BGV Vendor & Address Details", "Address", "Textarea", "Yes"],
+                ["BGV Vendor & Address Details", "Billing Address", "Textarea", "Yes"],
+                ["Billing Information", "GST Number", "Text", "Yes"],
+                ["Billing Information", "Invoice Payment Terms", "Number", "Yes"],
+                ["Documents Section", "Document Name", "Text", "Yes"],
+                ["Documents Section", "Validity", "Checkbox", "No"],
+                ["Documents Section", "Start Date", "Date", "No"],
+                ["Documents Section", "End Date", "Date", "No"],
+                ["Documents Section", "File", "File", "Yes"],
+                ["Vendor SPOC Details", "Name", "Text", "Yes"],
+                ["Vendor SPOC Details", "Email", "Email", "Yes"],
+                ["Vendor SPOC Details", "Phone", "Phone", "Yes"],
+                ["Vendor SPOC Details", "Designation", "Text", "Yes"],
+                ["Vendor SPOC Details", "Location", "Text", "Yes"],
+                ["Vendor SPOC Details", "Status", "Dropdown", "Yes"],
+                ["Vendor SPOC Details", "Functional Roles", "Multi-select", "Yes"],
+                ["Vendor SPOC Details", "Accounts Handled", "Multi-select", "No"]
+            ];
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += headers.join(",") + "\n";
+            csvContent += data.map(e => e.join(",")).join("\n");
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "bgv_vendor_input_fields.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>

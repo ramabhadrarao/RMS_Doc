@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Details Form - Full Documentation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f3f5;
+            font-weight: 700;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Candidate Details Form: Full Documentation</h1>
+            <p>A comprehensive guide for the multi-step candidate data entry and onboarding process.</p>
+            <button class="download-button" onclick="downloadAsExcel()">Download All Input Fields (Excel)</button>
+        </div>
+
+        <!-- Step 1: Personal Details -->
+        <div class="section" id="step1-guide">
+            <h2>Step 1: Personal Details</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To collect the candidate's basic personal, contact, and emergency information.</p>
+            </div>
+            <h3>1.1 Personal Information</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>First Name</td><td>Text Input</td><td>Candidate's first name.</td></tr>
+                    <tr><td>Middle Name</td><td>Text Input</td><td>Optional middle name.</td></tr>
+                    <tr><td>Last Name</td><td>Text Input</td><td>Candidate's last name.</td></tr>
+                    <tr><td>Date of Birth</td><td>Date Picker</td><td>Format: DD/MM/YYYY.</td></tr>
+                    <tr><td>Gender</td><td>Dropdown</td><td>Options: Male / Female / Other.</td></tr>
+                    <tr><td>Marital Status</td><td>Dropdown</td><td>Options: Single / Married.</td></tr>
+                    <tr><td>Passport Image</td><td>File Upload</td><td>Upload a passport-size photo.</td></tr>
+                </tbody>
+            </table>
+            <h3>1.2 Contact Information</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Phone no</td><td>Tel Input</td><td>Primary 10-digit phone number.</td></tr>
+                    <tr><td>Whatsapp no</td><td>Tel Input</td><td>Primary 10-digit phone number.</td></tr>
+
+                    <tr><td>Alternate Phone</td><td>Tel Input</td><td>Optional alternate phone number.</td></tr>
+                    <tr><td>Email</td><td>Email Input</td><td>Valid primary email address.</td></tr>
+                </tbody>
+            </table>
+            <h3>1.3 Emergency Contact</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Contact Person</td><td>Text Input</td><td>Full name of the emergency contact.</td></tr>
+                    <tr><td>Contact Phone</td><td>Tel Input</td><td>Phone number of the emergency contact.</td></tr>
+                    <tr><td>Relationship</td><td>Text Input</td><td>e.g., Father, Spouse, Sibling.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Step 2: Education Details -->
+        <div class="section" id="step2-guide">
+            <h2>Step 2: Education Details</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To capture the candidate's educational qualifications. This section supports multiple entries.</p>
+            </div>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Education Type</td><td>Dropdown</td><td>e.g., SSC, HSC, Bachelor's, Master's.</td></tr>
+                    <tr><td>School/College Name</td><td>Text Input</td><td>Name of the institution.</td></tr>
+                    <tr><td>Mode of Education</td><td>Dropdown</td><td>Full Time / Part Time / Correspondence.</td></tr>
+                    <tr><td>Specialization</td><td>Text Input</td><td>e.g., Computer Science, Mechanical Engineering.</td></tr>
+                    <tr><td>Start Date</td><td>Date Picker</td><td>Start date of the course.</td></tr>
+                    <tr><td>End Date</td><td>Date Picker</td><td>Completion date of the course.</td></tr>
+                    <tr><td>Marks/Grade</td><td>Text Input</td><td>e.g., 85% or 8.5 CGPA.</td></tr>
+                    <tr><td>University</td><td>Text Input</td><td>Name of the affiliating university.</td></tr>
+                    <tr><td>City</td><td>Text Input</td><td>City where the institution is located.</td></tr>
+                    <tr><td>State</td><td>Text Input</td><td>State where the institution is located.</td></tr>
+                    <tr><td>Certificate Upload</td><td>File Upload</td><td>Upload a PDF or image of the certificate.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Step 3: Employment Details -->
+        <div class="section" id="step3-guide">
+            <h2>Step 3: Employment Details</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To document the candidate's complete employment history. This section supports multiple entries.</p>
+            </div>
+            <h3>3.1 Role & Company</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Employment Type</td><td>Dropdown</td><td>Contract / Permanent / Freelance.</td></tr>
+                    <tr><td>Working Status</td><td>Dropdown</td><td>Working / Not Working.</td></tr>
+                    <tr><td>Designation</td><td>Text Input</td><td>The candidate's job title.</td></tr>
+                    <tr><td>Work Location</td><td>Text Input</td><td>Location of the job.</td></tr>
+                    <tr><td>Payroll Company</td><td>Text Input</td><td>Company that managed payroll.</td></tr>
+                    <tr><td>Client Company</td><td>Text Input</td><td>The company the candidate worked for.</td></tr>
+                    <tr><td>End Client</td><td>Text Input</td><td>Final client, if applicable (e.g., in a contract-to-hire scenario).</td></tr>
+                </tbody>
+            </table>
+            <h3>3.2 Dates & Notice Period</h3>
+            <table>
+                 <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                 <tbody>
+                    <tr><td>Start Date</td><td>Date Picker</td><td>Start of employment.</td></tr>
+                    <tr><td>Estimated Last Working Date</td><td>Date Picker</td><td>Fill if currently working.</td></tr>
+                    <tr><td>Last Working Date</td><td>Date Picker</td><td>Fill if not currently working.</td></tr>
+                    <tr><td>Expected Joining Date</td><td>Date Picker</td><td>For the next job opportunity.</td></tr>
+                    <tr><td>Notice Period</td><td>Text Input</td><td>Auto-calculated based on dates, can be overridden.</td></tr>
+                 </tbody>
+            </table>
+            <h3>3.3 Pipeline & Offer Status</h3>
+             <table>
+                 <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                 <tbody>
+                    <tr><td>In Another Pipeline?</td><td>Radio Buttons</td><td>Yes / No.</td></tr>
+                    <tr><td>Pipeline Details</td><td>Textarea</td><td>Provide details if 'Yes' is selected.</td></tr>
+                    <tr><td>Offer in Hand?</td><td>Radio Buttons</td><td>Yes / No.</td></tr>
+                    <tr><td>Offer Details</td><td>Textarea</td><td>Provide details of the offer if 'Yes' is selected.</td></tr>
+                    <tr><td>Upload Offer Proof</td><td>File Upload</td><td>Upload PDF or image of the offer letter.</td></tr>
+                 </tbody>
+            </table>
+            <h3>3.4 Documents & Remarks</h3>
+            <p>For each document type below, the user can select "Yes" or "No". If "Yes", a file upload may be required. A remarks field is available if the document is not available.</p>
+            <ul>
+                <li>Resignation Letter</li>
+                <li>PF Document</li>
+                <li>Last 3 Months' Payslips</li>
+                <li>Form 16</li>
+                <li>Bank Statement</li>
+                <li>Offer Letter</li>
+                <li>Relieving Letter</li>
+                <li>Experience Letter</li>
+            </ul>
+        </div>
+
+        <!-- Step 4: KYC & Address -->
+        <div class="section" id="step4-guide">
+            <h2>Step 4: KYC & Address Details</h2>
+            <div class="info-box"><p><strong>Objective:</strong> To collect Know Your Customer (KYC) documents and address information for verification and onboarding.</p></div>
+            <h3>4.1 KYC Details</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Aadhaar Number</td><td>Text Input</td><td>12-digit Aadhaar number.</td></tr>
+                    <tr><td>Upload Aadhaar</td><td>File Upload</td><td>PDF or image of the Aadhaar card.</td></tr>
+                    <tr><td>PAN Number</td><td>Text Input</td><td>10-character alphanumeric PAN.</td></tr>
+                    <tr><td>Upload PAN</td><td>File Upload</td><td>PDF or image of the PAN card.</td></tr>
+                    <tr><td>PAN Selfie</td><td>File Upload</td><td>A selfie of the candidate holding their PAN card.</td></tr>
+                    <tr><td>Passport Number</td><td>Text Input</td><td>Passport number.</td></tr>
+                    <tr><td>Upload Passport</td><td>File Upload</td><td>PDF or image of the passport.</td></tr>
+                </tbody>
+            </table>
+            <h3>4.2 Salary Account Preference</h3>
+            <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Salary Account Choice</td><td>Radio Buttons</td><td>Existing / New.</td></tr>
+                    <tr><td>Bank Account Number</td><td>Text Input</td><td>Candidate's bank account number.</td></tr>
+                    <tr><td>IFSC Code</td><td>Text Input</td><td>11-character bank IFSC code.</td></tr>
+                    <tr><td>Branch Name</td><td>Text Input</td><td>Name of the bank branch.</td></tr>
+                    <tr><td>Passbook/Cancelled Cheque</td><td>File Upload</td><td>PDF or image of the document.</td></tr>
+                </tbody>
+            </table>
+            <h3>4.3 Permanent & Current Address</h3>
+            <p>This section captures both permanent and current addresses. The current address can be auto-filled from the permanent address.</p>
+        </div>
+
+        <!-- Step 5: Financial Information -->
+        <div class="section" id="step5-guide">
+            <h2>Step 5: Business Type & Financial Information</h2>
+            <div class="info-box"><p><strong>Objective:</strong> To select a business type and manage financial data for the role. This section is typically handled by a Recruiter or HR Admin.</p></div>
+            <h3>5.1 Business Type Selection</h3>
+             <table>
+                <thead><tr><th>Field Name</th><th>Field Type</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Business Type</td><td>Dropdown</td><td>Options: Contract, Contract MSP, Permanent, Permanent MSP.</td></tr>
+                </tbody>
+            </table>
+            <h3>5.2 Input Fields (Dynamic)</h3>
+            <p>The following fields appear based on the Business Type selected.</p>
+             <table>
+                <thead><tr><th>Field Name</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Last Withdrawn Salary</td><td>The last salary earned by the candidate.</td></tr>
+                    <tr><td>Offered Salary</td><td>The salary being offered for the new role.</td></tr>
+                    <tr><td>Bill Rate</td><td>The rate charged to the client for contract roles.</td></tr>
+                    <tr><td>MSP Fee % on Bill Rate</td><td>The fee charged by the staffing agency or MSP.</td></tr>
+                </tbody>
+            </table>
+             <h3>5.3 Calculated Fields (Read-Only)</h3>
+            <p>These fields are calculated and displayed in real-time based on the inputs.</p>
+            <ul>
+                <li><b>For Contract:</b> Hike per Month (%), Gross Margin Amount, Gross Margin Percentage, Leave Cost, etc.</li>
+                <li><b>For Permanent:</b> Hike per Month (%), Billable Amount, etc.</li>
+            </ul>
+            <h4>Contract MSP & Permanent MSP: Calculated Fields Table</h4>
+            <p>For <strong>Contract MSP</strong> and <strong>Permanent MSP</strong>, all calculated fields are displayed in a summary table for clarity, rather than as individual fields.</p>
+            <table border="1" cellpadding="8" style="border-collapse:collapse; margin-bottom: 1.5em;">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value (Example)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Hike Per Month (%)</td><td>12.5%</td></tr>
+                <tr><td>Gross Margin Amount</td><td>₹50,000</td></tr>
+                <tr><td>Gross Margin Percentage</td><td>15%</td></tr>
+                <tr><td>Gross Margin Amount After MSP</td><td>₹40,000</td></tr>
+                <tr><td>Gross Margin Percentage After MSP</td><td>12%</td></tr>
+                <tr><td>Leave Cost</td><td>₹5,000</td></tr>
+                <tr><td>After Leave Cost Margin Amount</td><td>₹35,000</td></tr>
+                <tr><td>After Leave Cost Margin Percentage</td><td>10%</td></tr>
+              </tbody>
+            </table>
+            <p>For <strong>Permanent MSP</strong>, the table will include only the relevant calculated fields (e.g., Hike Per Month, Billable Amount, etc.).</p>
+        </div>
+
+        <!-- Backend Info -->
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following comprehensive JSON structure is recommended for storing the candidate's data in the database. It consolidates all steps into a single document.</p>
+            </div>
+            
+            <h3>Comprehensive Candidate JSON Structure</h3>
+            <pre><code>{
+  "personalDetails": {
+    "firstName": "Priya",
+    "middleName": "",
+    "lastName": "Sharma",
+    "dateOfBirth": "1995-08-15",
+    "gender": "Female",
+    "maritalStatus": "Single",
+    "passportImageURL": "/uploads/images/priya_sharma.jpg"
+  },
+  "contactInfo": {
+    "phoneNo": "9876543210",
+    "whatsappNo": "9876543210",
+    "alternatePhone": "8765432109",
+    "email": "priya.sharma@example.com"
+  },
+  "emergencyContact": {
+    "contactPerson": "Anil Sharma",
+    "contactPhone": "9988776655",
+    "relationship": "Father"
+  },
+  "education": [
+    {
+      "educationType": "Bachelor's",
+      "schoolCollegeName": "Delhi College of Engineering",
+      "modeOfEducation": "Full Time",
+      "specialization": "Computer Science",
+      "startDate": "2013-08-01",
+      "endDate": "2017-05-20",
+      "marksGrade": "8.8 CGPA",
+      "university": "Delhi Technological University",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "certificateURL": "/uploads/docs/bachelors_cert.pdf"
+    }
+  ],
+  "employment": [
+    {
+      "employmentType": "Permanent",
+      "workingStatus": "Working",
+      "designation": "Software Engineer",
+      "workLocation": "Bengaluru",
+      "payrollCompany": "Tech Solutions Pvt Ltd",
+      "clientCompany": "Tech Solutions Pvt Ltd",
+      "endClient": null,
+      "startDate": "2017-07-10",
+      "estimatedLastWorkingDate": "2024-08-30",
+      "lastWorkingDate": null,
+      "expectedJoiningDate": "2024-09-15",
+      "noticePeriod": "60 days"
+    }
+  ],
+  "offerStatus": {
+    "inAnotherPipeline": false,
+    "pipelineDetails": null,
+    "offerInHand": true,
+    "offerDetails": "Received an offer from Global Tech Inc.",
+    "offerProofURL": "/uploads/docs/global_tech_offer.pdf"
+  },
+  "documents": {
+    "resignationLetter": { "available": true, "url": "/uploads/docs/resignation.pdf", "remarks": "" },
+    "pfDocument": { "available": false, "url": null, "remarks": "Will be available after exit." },
+    "payslips": { "available": true, "url": "/uploads/docs/payslips.zip", "remarks": "" }
+    "form16": { "available": true, "url": "/uploads/docs/form16.pdf", "remarks": "" },
+    "bankStatement": { "available": true, "url": "/uploads/docs/bank_statement.pdf", "remarks": "" },
+    "offerLetter": { "available": true, "url": "/uploads/docs/offer_letter.pdf", "remarks": "" },
+    "relievingLetter": { "available": true, "url": "/uploads/docs/relieving_letter.pdf", "remarks": "" },
+    "experienceLetter": { "available": true, "url": "/uploads/docs/experience_letter.pdf", "remarks": "" }  
+},
+  "kyc": {
+    "aadhaarNumber": "123456789012",
+    "aadhaarURL": "/uploads/docs/aadhaar.pdf",
+    "panNumber": "ABCDE1234F",
+    "panURL": "/uploads/docs/pan.pdf",
+    "panSelfieURL": "/uploads/docs/pan_selfie.jpg",
+    "passportNumber": "Z9876543",
+    "passportURL": "/uploads/docs/passport.pdf"
+  },
+  "bankDetails": {
+    "accountChoice": "Existing",
+    "accountNumber": "001122334455",
+    "ifscCode": "HDFC0001234",
+    "branchName": "Koramangala",
+    "chequeURL": "/uploads/docs/cancelled_cheque.pdf"
+  },
+  "address": {
+    "permanent": {
+      "line1": "123, Sunshine Apartments",
+      "line2": "Green Valley",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    },
+    "current": {
+      "sameAsPermanent": false,
+      "line1": "456, Tech Hub",
+      "line2": "Electronic City",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560100",
+      "rentalAgreementURL": "/uploads/docs/rental.pdf",
+      "utilityBillURL": "/uploads/docs/utility_bill.pdf"
+    }
+  },
+  "financialInfo": {
+    "businessType": "Contract MSP",
+    "lastWithdrawnSalary": 800000,
+    "offeredSalary": 1200000,
+    "billRate": 1500000,
+    "mspFeePercentage": 5,
+    "calculated": {
+      "hikePercentage": 50,
+      "grossMarginAmount": 300000,
+      "grossMarginPercentage": 20,
+      "grossMarginAmountAfterMSP": 225000,
+      "grossMarginPercentageAfterMSP": 15,
+      "leaveCost": 85714,
+      "afterLeaveCostMarginAmount": 139286,
+      "afterLeaveCostMarginPercentage": 9.3
+    }
+  }
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function getFieldsAsData() {
+            return [
+                // Step 1
+                { Step: '1', Section: 'Personal Information', Field: 'First Name', Type: 'Text Input' },
+                { Step: '1', Section: 'Personal Information', Field: 'Middle Name', Type: 'Text Input' },
+                { Step: '1', Section: 'Personal Information', Field: 'Last Name', Type: 'Text Input' },
+                { Step: '1', Section: 'Personal Information', Field: 'Date of Birth', Type: 'Date Picker' },
+                { Step: '1', Section: 'Personal Information', Field: 'Gender', Type: 'Dropdown' },
+                { Step: '1', Section: 'Personal Information', Field: 'Marital Status', Type: 'Dropdown' },
+                { Step: '1', Section: 'Personal Information', Field: 'Passport Image', Type: 'File Upload' },
+                { Step: '1', Section: 'Contact Information', Field: 'Phone Number', Type: 'Tel Input' },
+                { Step: '1', Section: 'Contact Information', Field: 'Whatsapp Number', Type: 'Tel Input' },
+                { Step: '1', Section: 'Contact Information', Field: 'Alternate Phone', Type: 'Tel Input' },
+                { Step: '1', Section: 'Contact Information', Field: 'Email', Type: 'Email Input' },
+                { Step: '1', Section: 'Emergency Contact', Field: 'Contact Person', Type: 'Text Input' },
+                { Step: '1', Section: 'Emergency Contact', Field: 'Contact Phone', Type: 'Tel Input' },
+                { Step: '1', Section: 'Emergency Contact', Field: 'Relationship', Type: 'Text Input' },
+                // Step 2
+                { Step: '2', Section: 'Education Details', Field: 'Education Type', Type: 'Dropdown' },
+                { Step: '2', Section: 'Education Details', Field: 'School/College Name', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'Mode of Education', Type: 'Dropdown' },
+                { Step: '2', Section: 'Education Details', Field: 'Specialization', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'Start Date', Type: 'Date Picker' },
+                { Step: '2', Section: 'Education Details', Field: 'End Date', Type: 'Date Picker' },
+                { Step: '2', Section: 'Education Details', Field: 'Marks/Grade', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'University', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'City', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'State', Type: 'Text Input' },
+                { Step: '2', Section: 'Education Details', Field: 'Certificate Upload', Type: 'File Upload' },
+                // Step 3
+                { Step: '3', Section: 'Role & Company', Field: 'Employment Type', Type: 'Dropdown' },
+                { Step: '3', Section: 'Role & Company', Field: 'Working Status', Type: 'Dropdown' },
+                { Step: '3', Section: 'Role & Company', Field: 'Designation', Type: 'Text Input' },
+                { Step: '3', Section: 'Role & Company', Field: 'Work Location', Type: 'Text Input' },
+                { Step: '3', Section: 'Role & Company', Field: 'Payroll Company', Type: 'Text Input' },
+                { Step: '3', Section: 'Role & Company', Field: 'Client Company', Type: 'Text Input' },
+                { Step: '3', Section: 'Role & Company', Field: 'End Client', Type: 'Text Input' },
+                { Step: '3', Section: 'Dates & Notice Period', Field: 'Start Date', Type: 'Date Picker' },
+                { Step: '3', Section: 'Dates & Notice Period', Field: 'Estimated Last Working Date', Type: 'Date Picker' },
+                { Step: '3', Section: 'Dates & Notice Period', Field: 'Last Working Date', Type: 'Date Picker' },
+                { Step: '3', Section: 'Dates & Notice Period', Field: 'Expected Joining Date', Type: 'Date Picker' },
+                { Step: '3', Section: 'Dates & Notice Period', Field: 'Notice Period', Type: 'Text Input' },
+                { Step: '3', Section: 'Pipeline & Offer Status', Field: 'In Another Pipeline?', Type: 'Radio Buttons' },
+                { Step: '3', Section: 'Pipeline & Offer Status', Field: 'Pipeline Details', Type: 'Textarea' },
+                { Step: '3', Section: 'Pipeline & Offer Status', Field: 'Offer in Hand?', Type: 'Radio Buttons' },
+                { Step: '3', Section: 'Pipeline & Offer Status', Field: 'Offer Details', Type: 'Textarea' },
+                { Step: '3', Section: 'Pipeline & Offer Status', Field: 'Upload Offer Proof', Type: 'File Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Resignation Letter', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'PF Document', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: '3 Months Payslips', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Form 16', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Bank Statement', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Offer Letter', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Relieving Letter', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Experience Letter', Type: 'Yes/No + Upload' },
+                { Step: '3', Section: 'Documents & Remarks', Field: 'Remarks', Type: 'Textarea' },
+
+                // Step 4
+                { Step: '4', Section: 'KYC Details', Field: 'Aadhaar Number', Type: 'Text Input' },
+                { Step: '4', Section: 'KYC Details', Field: 'Upload Aadhaar', Type: 'File Upload' },
+                { Step: '4', Section: 'KYC Details', Field: 'PAN Number', Type: 'Text Input' },
+                { Step: '4', Section: 'KYC Details', Field: 'Upload PAN', Type: 'File Upload' },
+                { Step: '4', Section: 'KYC Details', Field: 'PAN Selfie', Type: 'File Upload' },
+                { Step: '4', Section: 'KYC Details', Field: 'Passport Number', Type: 'Text Input' },
+                { Step: '4', Section: 'KYC Details', Field: 'Upload Passport', Type: 'File Upload' },
+                { Step: '4', Section: 'Salary Account Preference', Field: 'Salary Account Choice', Type: 'Radio Buttons' },
+                { Step: '4', Section: 'Salary Account Preference', Field: 'Bank Account Number', Type: 'Text Input' },
+                { Step: '4', Section: 'Salary Account Preference', Field: 'IFSC Code', Type: 'Text Input' },
+                { Step: '4', Section: 'Salary Account Preference', Field: 'Branch Name', Type: 'Text Input' },
+                { Step: '4', Section: 'Salary Account Preference', Field: 'Passbook/Cancelled Cheque', Type: 'File Upload' },
+                { Step: '4', Section: 'Permanent Address', Field: 'Address Line 1', Type: 'Text Input' },
+                { Step: '4', Section: 'Permanent Address', Field: 'Address Line 2', Type: 'Text Input' },
+                { Step: '4', Section: 'Permanent Address', Field: 'City', Type: 'Text Input' },
+                { Step: '4', Section: 'Permanent Address', Field: 'State', Type: 'Text Input' },
+                { Step: '4', Section: 'Permanent Address', Field: 'Pincode', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'Same as Permanent', Type: 'Checkbox' },
+                { Step: '4', Section: 'Current Address', Field: 'Address Line 1', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'Address Line 2', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'City', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'State', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'Pincode', Type: 'Text Input' },
+                { Step: '4', Section: 'Current Address', Field: 'Rental Document', Type: 'File Upload' },
+                { Step: '4', Section: 'Current Address', Field: 'Current Bill', Type: 'File Upload' },
+                // Step 5
+                { Step: '5', Section: 'Business Type Selection', Field: 'Business Type', Type: 'Dropdown' },
+                // Contract
+                { Step: '5', Section: 'Input Fields', Field: 'Last Withdrawn Salary', Type: 'Display (₹) existing data' },
+                { Step: '5', Section: 'Input Fields', Field: 'Offered Salary', Type: 'Display (₹) existing data' },
+                { Step: '5', Section: 'Input Fields', Field: 'Bill Rate', Type: 'Number Input' },
+                { Step: '5', Section: 'Input Fields', Field: 'Hike Per Month (%)', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'Gross Margin Amount', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'Gross Margin Percentage', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'Leave Cost', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'After Leave Cost Margin Amount', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'After Leave Cost Margin Percentage', Type: 'Calculated' },
+                // Contract MSP
+                { Step: '5', Section: 'Input Fields', Field: 'MSP Fee % on Bill Rate', Type: 'Number Input' },
+                { Step: '5', Section: 'Input Fields', Field: 'Gross Margin Amount After MSP', Type: 'Calculated' },
+                { Step: '5', Section: 'Input Fields', Field: 'Gross Margin Percentage After MSP', Type: 'Calculated' },
+                // Permanent & Permanent MSP
+                { Step: '5', Section: 'Input Fields', Field: 'Invoice Value', Type: 'Number Input' },
+                { Step: '5', Section: 'Input Fields', Field: 'Billable Amount', Type: 'Calculated' }
+            ];
+        }
+
+        function downloadAsExcel() {
+            const data = getFieldsAsData();
+            const worksheet = XLSX.utils.json_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Candidate Form Fields");
+            XLSX.writeFile(workbook, "candidate_form_all_fields.xlsx");
+        }
+    </script>
+
+</body>
+</html>

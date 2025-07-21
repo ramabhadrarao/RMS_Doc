@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client Form - Full Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        ul.field-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .field-list li {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border: 1px solid #e9ecef;
+            font-weight: bold;
+            color: #495057;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Add Client Form: Full Documentation</h1>
+            <p>A comprehensive guide for users and developers covering the entire client creation workflow.</p>
+            <button class="download-button" onclick="downloadAsExcel()">Download All Input Fields (CSV)</button>
+        </div>
+
+        <div class="section" id="part1-guide">
+            <h2>Part 1: Business Type &amp; Initial Details</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To capture the high-level business relationship and core details of the client.</p>
+            </div>
+            <p>This is the first step in the client creation process. The selection made here determines the fields shown in subsequent steps.</p>
+            <ol>
+                <li><strong>Choose Business Type:</strong> Select <code>Contract</code>, <code>Permanent</code>, or <code>RPO</code>.</li>
+                <li><strong>Select Subtype (if applicable):</strong> For <code>Contract</code> or <code>Permanent</code>, choose a subtype like <code>MSP</code>.</li>
+                <li><strong>Fill Initial Details:</strong> Complete the basic client information that appears.</li>
+            </ol>
+            
+            <h3>Input Fields: Business Type</h3>
+            <h4>Business Type: Contract</h4>
+            <ul class="field-list">
+                <li>Client Name</li><li>Industry (select)</li><li>Website</li><li>linkedin</li><li>About Us</li><li>No. of Employees</li><li>Notes</li>
+            </ul>
+            <h4>Subtype: Contract MSP</h4>
+            <ul class="field-list">
+                <li>MSP Name</li><li>Client Name</li><li>MSP %</li><li>Industry</li><li>Website</li><li>linkedin</li><li>About Us</li><li>No. of Employees</li><li>Notes</li>
+            </ul>
+
+            <h4>Business Type: Permanent</h4>
+            <ul class="field-list">
+                <li>Client Name</li><li>%</li><li>Industry</li><li>Website</li><li>linkedin</li><li>About Us</li><li>No. of Employees</li><li>Notes</li>
+            </ul>
+            <h4>Subtype: Permanent MSP</h4>
+            <ul class="field-list">
+                <li>MSP Name</li><li>Client Name</li><li>MSP %</li><li>AFORV Billing %</li><li>Client %</li><li>Industry</li><li>Website</li><li>linkedin</li><li>About Us</li><li>No. of Employees</li><li>Notes</li>
+            </ul>
+
+            <h4>Business Type: RPO</h4>
+            <p>Allows multiple entries for skill requirements.</p>
+            <ul class="field-list">
+                <li>Skill Category</li><li>Exp Range</li><li>Invoice Value</li>
+            </ul>
+        </div>
+
+        <div class="section" id="part2-guide">
+            <h2>Part 2: Client Configuration &amp; Details</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To configure detailed operational, legal, and policy information for the client.</p>
+            </div>
+            <p>After setting the business type, this section captures the remaining details required to fully onboard the client.</p>
+
+            <h3>Financial Information (Business Type)</h3>
+            <h4>Contract</h4>
+            <ul class="field-list">
+              <li>Last Withdrawn Salary (Display ₹)</li>
+              <li>Offered Salary (Display ₹)</li>
+              <li>Bill Rate (Number Input)</li>
+              <li>Hike Per Month (%) (Calculated)</li>
+              <li>Gross Margin Amount (Calculated)</li>
+              <li>Gross Margin Percentage (Calculated)</li>
+              <li>Leave Cost (Calculated)</li>
+              <li>After Leave Cost Margin Amount (Calculated)</li>
+              <li>After Leave Cost Margin Percentage (Calculated)</li>
+            </ul>
+            <h4>Contract MSP</h4>
+            <ul class="field-list">
+              <li>Last Withdrawn Salary (Display ₹)</li>
+              <li>Offered Salary (Display ₹)</li>
+              <li>Bill Rate (Number Input)</li>
+              <li>MSP Fee % on Bill Rate (Number Input)</li>
+              <li>Hike Per Month (%) (Calculated)</li>
+              <li>Gross Margin Amount (Calculated)</li>
+              <li>Gross Margin Percentage (Calculated)</li>
+              <li>Gross Margin Amount After MSP (Calculated)</li>
+              <li>Gross Margin Percentage After MSP (Calculated)</li>
+              <li>Leave Cost (Calculated)</li>
+              <li>After Leave Cost Margin Amount (Calculated)</li>
+              <li>After Leave Cost Margin Percentage (Calculated)</li>
+            </ul>
+            <h4>Permanant & Permanent MSP</h4>
+            <ul class="field-list">
+              <li>Last Withdrawn Salary (Display ₹)</li>
+              <li>Offered Salary (Display ₹)</li>
+              <li>Invoice Value (Number Input)</li>
+              <li>Hike Per Month (%) (Calculated)</li>
+              <li>Billable Amount (Calculated)</li>
+            </ul>
+
+            <h3>Client & Address Details</h3>
+            <ul class="field-list">
+                <li>Address</li><li>Billing Address</li>
+            </ul>
+
+            <h3>Billing Information</h3>
+            <ul class="field-list">
+                <li>GST Number</li><li>Invoice Payment Terms (days)</li><li>Billing Rule (Per day, Per hour, Fixed)</li>
+            </ul>
+
+            <h3>Timesheet Configuration</h3>
+            <ul class="field-list">
+                <li>Timesheet Type (Day, Hour)</li><li>Timesheet Filling Type (Portal, Manual)</li><li>Portal Name (if Portal is selected)</li><li>Working hours per day (if Hour is selected)</li><li>Timesheet Cutoff Day</li><li>Remarks (if Manual is selected)</li>
+            </ul>
+
+            <h3>Documents (For Candidates &amp; Clients)</h3>
+            <p>This section allows for uploading multiple documents. Each document entry has the following fields:</p>
+            <ul class="field-list">
+                <li>Upload Document (File Input)</li><li>Document Name</li><li>Validity (Checkbox)</li><li>Start Date (if Validity is checked)</li><li>End Date (if Validity is checked)</li>
+            </ul>
+
+            <h3>Leave Policy</h3>
+            <p>This section allows for detailed configuration of leave policies for different employee stages (Probation vs. Post-Probation). First, select the stage, then choose the leave types to configure.</p>
+            <h4>Initial Setup</h4>
+            <ul class="field-list">
+                <li><strong>Employee Stage:</strong> Select "In Probation" or "After Probation".</li>
+                <li><strong>Select Leave Types:</strong> A multi-select dropdown to choose which leave policies to define (e.g., Earned Leave, Sick Leave, Maternity Leave).</li>
+            </ul>
+            <h4>Leave Type Configuration (for each selected leave)</h4>
+            <ul class="field-list">
+                <li><strong>Apply [Leave Type]:</strong> A checkbox to enable or disable this specific leave policy.</li>
+                <li><strong>[Leave Type] per Month:</strong> (For EL, SL, CL) Number of leaves credited per month.</li>
+                <li><strong>Carry Forward?:</strong> (For EL, SL, CL) "Yes" or "No".</li>
+                <li><strong>Carry Forward Per Year (Days):</strong> (If Carry Forward is "Yes") The maximum number of days that can be carried over.</li>
+                <li><strong>Leave Credit Frequency:</strong> (For EL, SL, CL) How often leaves are credited (Monthly, Quarterly, etc.).</li>
+                <li><strong>Encashable?:</strong> (For EL, CompOff) "Yes" or "No". Eligibility is 1 year of service.</li>
+                <li><strong>Medical Certificate Rule:</strong> (For SL) Text field for rules about medical certificates.</li>
+                <li><strong>Optional Leaves per Year:</strong> (For Optional Leave) Number of optional holidays per year.</li>
+                <li><strong>Validity (Days):</strong> (For CompOff) Number of days the leave is valid for.</li>
+                <li><strong>Duration (Weeks/Days):</strong> (For Maternity/Paternity) The duration of the leave.</li>
+                <li><strong>Extension Allowed?:</strong> (For Maternity) "Yes" or "No".</li>
+                <li><strong>Avail Within (Days from childbirth):</strong> (For Paternity) The window to avail the leave.</li>
+                <li><strong>Expiry Cycle:</strong> When the leave balance expires (Monthly, Quarterly, Yearly, Specific Date).</li>
+                <li><strong>Expiry Date:</strong> (If Expiry Cycle is "Specific Date") The exact date of expiry.</li>
+            </ul>
+
+            <h3>Background Verification Policy</h3>
+            <h4>Education Policy</h4>
+            <ul class="field-list">
+                <li>SSC (Both, Regular, Correspondence)</li>
+                <li>Intermediate (Both, Regular, Correspondence)</li>
+                <li>Diploma (Both, Regular, Correspondence)</li>
+                <li>Graduation (Both, Regular, Correspondence)</li>
+                <li>PG (Both, Regular, Correspondence)</li>
+            </ul>
+            <h4>Minimum Education & Remarks</h4>
+            <ul class="field-list">
+                <li>Minimum Education Required (Years)</li>
+                <li>Remarks / Policy Notes</li>
+
+            </ul>
+
+            <h4>Employment Policy</h4>
+            <ul class="field-list">
+               
+                <li>Remarks / Policy Notes</li>
+                
+            </ul>
+
+            <h4>Blocklist Uploads</h4>
+            <ul class="field-list">
+                <li>Upload Blocklisted Companies (Upload doc file)</li>
+                <li>Upload Blocklisted Universities (Upload doc file)</li>
+            </ul>
+
+            <h3>Client SPOC (Single Point of Contact) Details</h3>
+            <p>Allows for adding multiple SPOCs for the client.</p>
+            <ul class="field-list">
+                <li>Client ID (Auto-filled)</li><li>SPOC Name</li><li>Email</li><li>Mobile</li><li>Location</li><li>Designation</li><li>Status (Active, Inactive)</li><li>Functional Roles (Multi-select)</li><li>Accounts Handled (Multi-select)</li>
+            </ul>
+        </div>
+
+
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following comprehensive JSON structure is recommended. It combines all form parts into a single, coherent object that can be stored in a database document.</p>
+            </div>
+            
+            <h3>Comprehensive Client JSON Structure</h3>
+            <p>This example represents a "Permanent MSP" client with all details filled out.</p>
+            <pre><code>{
+  "businessType": "Permanent",
+  "subType": "Permanent MSP",
+  "businessDetails": {
+    "mspName": "Example MSP",
+    "clientName": "Innovate Corp",
+    "mspPercentage": 12.5,
+    "aforvBillingPercentage": 4,
+    "clientPercentage": 83.5,
+    "industry": "Software Development",
+    "website": "https://innovatecorp.example.com",
+    "linkedin": "https://linkedin.com/company/innovatecorp",
+    "aboutUs": "A market leader in enterprise software solutions.",
+    "numberOfEmployees": 2500,
+    "notes": "High priority client."
+  },
+  "addressDetails": {
+    "primaryAddress": "123 Tech Park, Silicon Valley, CA",
+    "billingAddress": "456 Finance Ave, Business City, CA"
+  },
+  "billingInfo": {
+    "gstNumber": "22AAAAA0000A1Z5",
+    "paymentTerms": 45,
+    "billingRule": "Per day"
+  },
+  "timesheetConfig": {
+    "timesheetType": "Day",
+    "fillingType": "Portal",
+    "portalName": "ClientTime Portal",
+    "workingHoursPerDay": null,
+    "cutoffDate": "2025-12-25",
+    "remarks": null
+  },
+  "documents": {
+    "forCandidates": [
+      { "name": "Candidate NDA", "hasValidity": true, "startDate": "2025-01-01", "endDate": "2026-01-01", "fileUrl": "/path/to/candidate_nda.pdf" }
+    ],
+    "forClients": [
+      { "name": "Master Service Agreement", "hasValidity": false, "startDate": null, "endDate": null, "fileUrl": "/path/to/msa.pdf" }
+    ]
+  },
+  "leavePolicy": {
+    "postProbation": {
+      "EL": {
+        "enabled": true,
+        "perMonth": 1.5,
+        "carryForward": "Yes",
+        "carryForwardLimit": 30,
+        "creditFrequency": "Monthly",
+        "encashable": "Yes",
+        "expiryCycle": "Yearly"
+      },
+      "SL": {
+        "enabled": true,
+        "perMonth": 1,
+        "carryForward": "No",
+        "creditFrequency": "Monthly",
+        "medicalRule": "Certificate required for more than 2 consecutive days.",
+        "expiryCycle": "Quarterly"
+      },
+      "Maternity": {
+        "enabled": true,
+        "duration": 26,
+        "extensionAllowed": "No"
+      }
+    },
+    "preProbation": {
+       "CL": {
+        "enabled": true,
+        "perMonth": 1,
+        "carryForward": "No",
+        "creditFrequency": "Monthly",
+        "expiryCycle": "Monthly"
+      }
+    }
+  },
+  "verificationPolicy": {
+    "educationPolicy": {
+      "ssc": "Regular",
+      "intermediate": "Both",
+      "diploma": "Not Applicable",
+      "graduation": "Regular",
+      "pg": "Both"
+    },
+    "minEducationYears": 15,
+    "remarks": "Standard background check required for all candidates.",
+    "employmentPolicy": {
+      "remarks": "All candidates must pass the background verification process."
+    },
+     "blocklistUploads": {
+    "blocklistedCompaniesFileUrl": "/path/to/blocklisted_companies.docx",
+    "blocklistedUniversitiesFileUrl": "/path/to/blocklisted_universities.docx"
+  }
+  },
+  "spocDetails": [
+    {
+      "name": "John Doe",
+      "email": "john.doe@innovatecorp.com",
+      "mobile": "123-456-7890",
+      "location": "Main Office",
+      "designation": "Hiring Manager",
+      "status": "Active",
+      "functionalRoles": ["Technical", "Management"],
+      "accountsHandled": ["Project Phoenix"]
+    }
+  ]
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function getFieldsAsCsv() {
+            const fields = [
+                // Part 1: Business Type
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'Client Name' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'Industry (select)' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'Website' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'Linkedin' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'About Us' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'No. of Employees' },
+                { formPart: 'Business Type', section: 'Contract', fieldName: 'Notes' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'MSP Name' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'Client Name' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'MSP %' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'Industry' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'Website' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'Linkedin' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'About Us' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'No. of Employees' },
+                { formPart: 'Business Type', section: 'Contract MSP', fieldName: 'Notes' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'Client Name' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: '%' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'Industry' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'Website' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'Linkedin' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'About Us' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'No. of Employees' },
+                { formPart: 'Business Type', section: 'Permanent', fieldName: 'Notes' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'MSP Name' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'AFORV Billing %' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'Client %' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'Industry' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'Website' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'Linkedin' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'About Us' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'No. of Employees' },
+                { formPart: 'Business Type', section: 'Permanent MSP', fieldName: 'Notes' },
+                { formPart: 'Business Type', section: 'RPO', fieldName: 'Skill Category' },
+                { formPart: 'Business Type', section: 'RPO', fieldName: 'Exp Range' },
+                { formPart: 'Business Type', section: 'RPO', fieldName: 'Invoice Value' },
+                
+                // Part 2: Client Configuration
+                { formPart: 'Client Config', section: 'Address', fieldName: 'Address' },
+                { formPart: 'Client Config', section: 'Address', fieldName: 'Billing Address' },
+                { formPart: 'Client Config', section: 'Billing', fieldName: 'GST Number' },
+                { formPart: 'Client Config', section: 'Billing', fieldName: 'Invoice Payment Terms (days)' },
+                { formPart: 'Client Config', section: 'Billing', fieldName: 'Billing Rule' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Timesheet Type' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Timesheet Filling Type' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Portal Name' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Working hours per day' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Timesheet Cutoff Day' },
+                { formPart: 'Client Config', section: 'Timesheet', fieldName: 'Remarks' },
+                { formPart: 'Client Config', section: 'Documents', fieldName: 'Document Upload' },
+                { formPart: 'Client Config', section: 'Documents', fieldName: 'Document Name' },
+                { formPart: 'Client Config', section: 'Documents', fieldName: 'Validity' },
+                { formPart: 'Client Config', section: 'Documents', fieldName: 'Start Date' },
+                // Leave Policy Fields
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Employee Stage' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Leave Types (Multi-select)' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Apply Leave (Checkbox)' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Leaves per Month' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Carry Forward?' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Carry Forward Limit' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Leave Credit Frequency' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Encashable?' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Medical Certificate Rule' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Optional Leaves per Year' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Validity (Days)' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Duration (Weeks/Days)' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Extension Allowed?' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Avail Within (Days)' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Expiry Cycle' },
+                { formPart: 'Client Config', section: 'Leave Policy', fieldName: 'Expiry Date' },
+
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Education Policy - SSC' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Education Policy - Intermediate' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Education Policy - Diploma' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Education Policy - Graduation' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Education Policy - PG' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Minimum Education Required' },
+                { formPart: 'Client Config', section: 'Background Verification', fieldName: 'Remarks / Policy Notes' },
+                { formPart: 'Client Config', section: 'Employment Policy', fieldName: 'Remarks / Policy Notes' },
+                { formPart: 'Client Config', section: 'Blocklist Uploads', fieldName: 'Upload Blocklisted Companies (doc file)' },
+                { formPart: 'Client Config', section: 'Blocklist Uploads', fieldName: 'Upload Blocklisted Universities (doc file)' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'SPOC Name' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Email' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Mobile' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Location' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Designation' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Status' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Functional Roles' },
+                { formPart: 'Client Config', section: 'SPOC Details', fieldName: 'Accounts Handled' }
+            ];
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "FormPart,Section,FieldName\n"; // CSV Header
+
+            fields.forEach(row => {
+                const sanitizedFieldName = `"${row.fieldName.replace(/"/g, '""')}"`;
+                let csvRow = [row.formPart, row.section, sanitizedFieldName].join(",");
+                csvContent += csvRow + "\n";
+            });
+
+            return encodeURI(csvContent);
+        }
+
+        function downloadAsExcel() {
+            const encodedUri = getFieldsAsCsv();
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "client_form_all_fields.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>

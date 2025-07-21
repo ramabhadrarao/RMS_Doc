@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Requirement Form - Full Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        ul.field-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .field-list li {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border: 1px solid #e9ecef;
+            font-weight: bold;
+            color: #495057;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Add Requirement Form: Full Documentation</h1>
+            <p>A comprehensive guide for users and developers covering the requirement creation workflow.</p>
+            <button class="download-button" onclick="downloadAsExcel()">Download All Input Fields (CSV)</button>
+        </div>
+
+        <div class="section" id="form-guide">
+            <h2>Step-by-Step Guide to Fill the Form</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To guide HR personnel and recruiters on how to use the Add Requirement form to create a new job requirement.</p>
+            </div>
+
+            <h3>Section 1: Job Details</h3>
+            <ul class="field-list">
+                <li><strong>Job Title / Designation (Required):</strong> Enter the job title, e.g., "Software Engineer".</li>
+                <li><strong>Employment Type (Required):</strong> Choose from: Full Time / Contract / Freelance.</li>
+                <li><strong>Client Details (Required):</strong> Select from: TCS, IBM, HCL, Capgemini.</li>
+                <li><strong>Background Check:</strong> Select from: Stating - Ending PF Details.</li>
+                <li><strong>Key Skills:</strong> Enter skill name and relevant experience (in years). Click "Add Skill" to add to the list. You can remove skills by clicking the "×" button.</li>
+                <li><strong>Department & Role Category (Required):</strong> Enter the department and role category (e.g., IT / Software).</li>
+                <li><strong>Work Mode (Required):</strong> Choose from: Hybrid, Remote, Office. If Hybrid, enter Hybrid Norm (e.g., "3 days office, 2 days remote").</li>
+                <li><strong>Shift Type (Required):</strong> Choose from: Morning, Evening, Night, Rotational, etc. If Other, enter a custom shift type.</li>
+                <li><strong>Day Range (Required):</strong> Choose from: Monday-Friday, Weekend, etc. If Other, enter a custom day range.</li>
+                <li><strong>Job Location (Required):</strong> Enter the job location (e.g., Bangalore).</li>
+                <li><strong>Include Candidates Willing to Relocate:</strong> Check this box if candidates willing to relocate are allowed.</li>
+            </ul>
+
+            <h3>Section 2: Experience & Salary</h3>
+            <ul class="field-list">
+                <li><strong>Work Experience (Min & Max in years) (Required):</strong> Enter the minimum and maximum years of experience required.</li>
+                <li><strong>Salary Type (Required):</strong> Choose from: Annual or Monthly.</li>
+                <li><strong>Salary Range (Required):</strong> Enter minimum and maximum salary offered.</li>
+                <li><strong>Variable Salary Component:</strong> Enter the percentage of salary that is variable.</li>
+                <li><strong>Hide Salary Details from Candidates:</strong> Check this box if you want to hide salary details from applicants.</li>
+            </ul>
+
+            <h3>Section 3: Education & Diversity</h3>
+            <ul class="field-list">
+                <li><strong>Educational Qualification (Required):</strong> Enter the required educational qualification (e.g., B.Tech).</li>
+                <li><strong>Diversity Preferences:</strong> Choose from: All, Male, Female, Women returning to work, Differently-abled.</li>
+            </ul>
+
+            <h3>Section 4: Perks & Benefits</h3>
+            <ul class="field-list">
+                <li><strong>Add Perks & Benefits:</strong> Select from a list of predefined perks (e.g., Health Insurance, Work from Home). Click "Add" to add to the list. You can remove perks by clicking the "×" button.</li>
+                <li><strong>Other Perk/Benefit:</strong> If "Other" is selected, enter a custom perk or benefit.</li>
+            </ul>
+
+            <h3>Section 5: Job Description</h3>
+            <ul class="field-list">
+                <li><strong>Job Description (Required):</strong> Enter the role and responsibilities. Include the Preferred Candidate Profile as part of the description.</li>
+            </ul>
+
+            <h3>Section 6: Interview Rounds</h3>
+            <ul class="field-list">
+                <li><strong>Number of Interview Rounds:</strong> Enter the number of interview rounds (e.g., 2).</li>
+                <li><strong>For each round:</strong>
+                    <ul class="field-list" style="margin-left: 20px; margin-top: 10px;">
+                        <li>Round Name (e.g., "1st Round")</li>
+                        <li>Interview Mode: Choose from: Face to face, Telephonic, Video Interview, etc.</li>
+                        <li>Interview Type: Choose from: Technical, HR, Managerial, etc.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Section 7: Vacancy</h3>
+            <ul class="field-list">
+                <li><strong>More than one vacancy?:</strong> Choose: Yes or No. If Yes, enter the number of vacancies.</li>
+            </ul>
+
+            <h3>Section 8: Company Info</h3>
+            <ul class="field-list">
+                <li><strong>Company Name (Required):</strong> Enter the company name.</li>
+                <li><strong>Company Website:</strong> Enter the company's official website.</li>
+                <li><strong>About Company (Required):</strong> Enter a brief description of the company.</li>
+                <li><strong>Company Address:</strong> Enter the company's address.</li>
+                <li><strong>Auto-refresh job posting:</strong> Check this box to automatically refresh the job at defined intervals.</li>
+            </ul>
+
+            <h3>Submitting the Form</h3>
+            <ol>
+                <li>After filling all required fields, scroll to the bottom of the form.</li>
+                <li>Click the "Save" button.</li>
+                <li>You will be redirected to the Allocate Requirement screen to assign the job to recruiters or vendors.</li>
+            </ol>
+        </div>
+
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following comprehensive JSON structure is recommended. It combines all form parts into a single, coherent object that can be stored in a database document.</p>
+            </div>
+            
+            <h3>Comprehensive Requirement JSON Structure</h3>
+            <pre><code>{
+  "jobTitle": "Software Engineer",
+  "employmentType": "fullTime",
+  "keySkills": [
+    { "name": "React", "experience": "3" },
+    { "name": "Node.js", "experience": "2" }
+  ],
+  "departmentCategory": "Engineering",
+  "client_Id": "ueuwg3uu72",
+  "backgroundCheck": "Stating - Ending PF Details",
+  "workMode": "hybrid",
+  "hybridNorm": "3 days in office, 2 days remote",
+  "shiftType": "Day shift",
+  "otherShift": "",
+  "dayRange": "Monday to Friday",
+  "otherDayRange": "",
+  "jobLocation": "Bengaluru",
+  "relocateCandidates": true,
+  "workExpMin": "3",
+  "workExpMax": "5",
+  "salaryType": "annual",
+  "salaryMin": "1000000",
+  "salaryMax": "1500000",
+  "variableSalary": "10",
+  "hideSalaryDetails": false,
+  "companyIndustry": "IT",
+  "educationalQualification": "B.Tech",
+  "diversity": ["All"],
+  "perksBenefits": ["Health Insurance", "Work from Home"],
+  "otherPerksBenefits": "",
+  "jobDescription": "Looking for a skilled software engineer...",
+  "numInterviewRounds": 3,
+  "interviewRounds": [
+    { "name": "1st Round", "mode": "Telephonic Interview", "type": "Screening Interview" },
+    { "name": "2nd Round", "mode": "Video Interview (Online)", "type": "Technical Interview" },
+    { "name": "3rd Round", "mode": "Face to face", "type": "HR Interview" }
+  ],
+  "moreVacancy": "yes",
+  "vacancyCount": "5",
+  "companyName": "ABC Corp",
+  "companyWebsite": "https://abccorp.com",
+  "aboutCompany": "A leading company in the IT sector.",
+  "companyAddress": "123, ABC Street, Bengaluru",
+  "refreshJob": true
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function getFieldsAsCsv() {
+            const fields = [
+                { section: 'Job Details', fieldName: 'jobTitle' },
+                { section: 'Job Details', fieldName: 'employmentType' },
+                { section: 'Job Details', fieldName: 'keySkills' },
+                { section: 'Job Details', fieldName: 'departmentCategory' },
+                { section: 'Job Details', fieldName: 'clientDetails' },
+                { section: 'Job Details', fieldName: 'backgroundCheck' },
+                { section: 'Job Details', fieldName: 'workMode' },
+                { section: 'Job Details', fieldName: 'hybridNorm' },
+                { section: 'Job Details', fieldName: 'shiftType' },
+                { section: 'Job Details', fieldName: 'otherShift' },
+                { section: 'Job Details', fieldName: 'dayRange' },
+                { section: 'Job Details', fieldName: 'otherDayRange' },
+                { section: 'Job Details', fieldName: 'jobLocation' },
+                { section: 'Job Details', fieldName: 'relocateCandidates' },
+                { section: 'Experience & Salary', fieldName: 'workExpMin' },
+                { section: 'Experience & Salary', fieldName: 'workExpMax' },
+                { section: 'Experience & Salary', fieldName: 'salaryType' },
+                { section: 'Experience & Salary', fieldName: 'salaryMin' },
+                { section: 'Experience & Salary', fieldName: 'salaryMax' },
+                { section: 'Experience & Salary', fieldName: 'variableSalary' },
+                { section: 'Experience & Salary', fieldName: 'hideSalaryDetails' },
+                { section: 'Education & Diversity', fieldName: 'educationalQualification' },
+                { section: 'Education & Diversity', fieldName: 'diversity' },
+                { section: 'Perks & Benefits', fieldName: 'perksBenefits' },
+                { section: 'Perks & Benefits', fieldName: 'otherPerksBenefits' },
+                { section: 'Job Description', fieldName: 'jobDescription' },
+                { section: 'Interview Rounds', fieldName: 'numInterviewRounds' },
+                { section: 'Interview Rounds', fieldName: 'interviewRounds' },
+                { section: 'Vacancy', fieldName: 'moreVacancy' },
+                { section: 'Vacancy', fieldName: 'vacancyCount' },
+                { section: 'Company Info', fieldName: 'companyName' },
+                { section: 'Company Info', fieldName: 'companyWebsite' },
+                { section: 'Company Info', fieldName: 'aboutCompany' },
+                { section: 'Company Info', fieldName: 'companyAddress' },
+                { section: 'Company Info', fieldName: 'refreshJob' },
+            ];
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Section,FieldName\n"; // CSV Header
+
+            fields.forEach(row => {
+                const sanitizedFieldName = `"${row.fieldName.replace(/"/g, '""')}"`;
+                let csvRow = [row.section, sanitizedFieldName].join(",");
+                csvContent += csvRow + "\n";
+            });
+
+            return encodeURI(csvContent);
+        }
+
+        function downloadAsExcel() {
+            const encodedUri = getFieldsAsCsv();
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "add_requirement_fields.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>

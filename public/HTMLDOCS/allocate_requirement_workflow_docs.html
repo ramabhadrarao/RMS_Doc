@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocate Requirement Form - Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        ul.field-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .field-list li {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border: 1px solid #e9ecef;
+            font-weight: bold;
+            color: #495057;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Allocate Requirement Form: Documentation</h1>
+            <p>A guide for users on how to use the allocation form and for developers on the data structure.</p>
+            <button class="download-button" onclick="downloadAsExcel()">Download Input Fields (CSV)</button>
+        </div>
+
+        <div class="section" id="user-guide">
+            <h2>User Guide</h2>
+            <div class="info-box">
+                <p><strong>Objective:</strong> To assign a job requirement to the appropriate recruiters, teams, freelancers, or vendors.</p>
+            </div>
+            
+            <h3>1. Accessing the Form</h3>
+            <ol>
+                <li>After creating a job requirement, you will be automatically redirected to the Allocate Requirement screen.</li>
+                <li>Alternatively, you can navigate directly to the URL (e.g., <code>/allocate-requirement</code>).</li>
+            </ol>
+
+            <h3>2. Filling the Form</h3>
+            <p>Follow these steps to allocate the job requirement:</p>
+            
+            <h4>Section 1: Choose Allocation Type</h4>
+            <p>Select one or more of the following options to determine who can see the requirement:</p>
+            <ul class="field-list">
+                <li><b>All:</b> Makes the requirement visible to everyone.</li>
+                <li><b>Recruiters:</b> Allows you to select specific internal recruiters.</li>
+                <li><b>Teams:</b> Allows you to select specific teams (both lead and members).</li>
+                <li><b>Freelancers:</b> Allows you to select specific freelance recruiters.</li>
+                <li><b>Vendors:</b> Allows you to select specific vendor companies.</li>
+            </ul>
+
+            <h4>Section 2: Select Individuals/Groups</h4>
+            <p>Based on your selection in the previous section, you will see lists of recruiters, teams, freelancers, or vendors. Check the boxes next to the names you want to allocate the requirement to.</p>
+
+            <h4>Section 3: Submitting the Form</h4>
+            <p>Once you have made your selections, click the <strong>Submit</strong> button to finalize the allocation.</p>
+        </div>
+
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following JSON structure should be used to store the allocation data. This structure is designed to be flexible and easily queryable.</p>
+            </div>
+            
+            <h3>Allocation Data JSON Structure</h3>
+            <p>This example shows an allocation for a requirement assigned to a specific recruiter and a team.</p>
+            <pre><code>{
+  "requirementId": "REQ-2024-07-15-001",
+  "allocatedTo": {
+    "all": false,
+    "recruiters": [
+      {
+        "recruiterId": "EMP-101",
+        "name": "John Doe"
+      }
+    ],
+    "teams": [
+      {
+        "teamId": "TEAM-DEV-A",
+        "teamName": "Core Development Team A",
+        "members": [
+          {
+            "memberId": "EMP-105",
+            "name": "Jane Smith"
+          },
+          {
+            "memberId": "EMP-106",
+            "name": "Peter Jones"
+          }
+        ]
+      }
+    ],
+    "freelancers": [],
+    "vendors": []
+  },
+  "allocatedBy": "user-admin-01",
+  "allocationTimestamp": "2024-07-21T10:00:00Z"
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function getFieldsAsCsv() {
+            const fields = [
+                { formPart: 'Allocation', section: 'Allocation Type', fieldName: 'All' },
+                { formPart: 'Allocation', section: 'Allocation Type', fieldName: 'Recruiters' },
+                { formPart: 'Allocation', section: 'Allocation Type', fieldName: 'Teams' },
+                { formPart: 'Allocation', section: 'Allocation Type', fieldName: 'Freelancers' },
+                { formPart: 'Allocation', section: 'Allocation Type', fieldName: 'Vendors' },
+                { formPart: 'Allocation', section: 'Recruiters', fieldName: 'Recruiter List' },
+                { formPart: 'Allocation', section: 'Teams', fieldName: 'Team List' },
+                { formPart: 'Allocation', section: 'Freelancers', fieldName: 'Freelancer List' },
+                { formPart: 'Allocation', section: 'Vendors', fieldName: 'Vendor List' }
+            ];
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "FormPart,Section,FieldName\n"; // CSV Header
+
+            fields.forEach(row => {
+                const sanitizedFieldName = `"${row.fieldName.replace(/"/g, '""')}"`;
+                let csvRow = [row.formPart, row.section, sanitizedFieldName].join(",");
+                csvContent += csvRow + "\n";
+            });
+
+            return encodeURI(csvContent);
+        }
+
+        function downloadAsExcel() {
+            const encodedUri = getFieldsAsCsv();
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "allocate_requirement_fields.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>

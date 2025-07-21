@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Call Form - Full Documentation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            padding: 25px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dee2e6;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: #212529;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0056b3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            color: #495057;
+            border-bottom: 1px solid #ced4da;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .download-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            border-left: 6px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f1f3f5;
+            font-weight: 700;
+        }
+        pre {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #e9ecef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            color: #c7254e;
+        }
+        .behavior-list {
+            list-style-type: '➤ ';
+            padding-left: 20px;
+            margin: 10px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>Recruiter Call Form: Full Documentation</h1>
+            <p>A comprehensive, line-by-line guide for the Recruiter Call Form, detailing the complete workflow and data structure.</p>
+            <button class="download-button" onclick="downloadAsExcel()">Download All Input Fields (Excel)</button>
+            <button class="download-button" onclick="window.print()" style="background-color: #dc3545; margin-top: 10px;">Download as PDF</button>
+        </div>
+
+        <div class="section" id="workflow-table">
+            <h2>Line-by-Line Workflow</h2>
+            <div class="info-box">
+                <p>This table is a direct, step-by-step representation of the workflow defined in the <code>RecruiterCallForm Workflow.pdf</code> document. No steps have been skipped or consolidated.</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 25%;">Field / Action</th>
+                        <th style="width: 35%;">Details (Input, Options, Required)</th>
+                        <th style="width: 35%;">Behavior & Workflow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Initial Fields -->
+                    <tr><td colspan="4" style="background-color: #e9ecef; font-weight: bold;">Main Form: RecruiterCallForm - Initial Fields</td></tr>
+                    <tr><td>1</td><td><strong>Candidate Name</strong></td><td>Input: Text<br>Required: No</td><td>Free text input.<br><code>Updates: formData.candidateName</code></td></tr>
+                    <tr><td>2</td><td><strong>Contact Number</strong></td><td>Input: Text (tel)<br>Required: No</td><td>Free text input.<br><code>Updates: formData.contactNumber</code></td></tr>
+                    <tr><td>3</td><td><strong>Email</strong></td><td>Input: Text (email)<br>Required: No</td><td>Free text input.<br><code>Updates: formData.email</code></td></tr>
+
+                    <!-- Candidate Response -->
+                    <tr><td colspan="4" style="background-color: #e9ecef; font-weight: bold;">Candidate Response Section</td></tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Are you currently looking for a job change?</strong></td>
+                        <td>Input: Radio Buttons<br>Required: Yes<br><strong>Options:</strong><br>- Yes<br>- No<br>- No response / Wrong Number<br>- Disconnected<br>- Asked to call later</td>
+                        <td>Triggers conditional sections based on selection.<ul class="behavior-list"><li><strong>If Yes:</strong> Shows RecruiterForm.</li><li><strong>If No:</strong> Shows Reason for "Not Interested".</li><li><strong>If No response / Disconnected:</strong> Shows Close Interaction.</li><li><strong>If Asked to call later:</strong> Shows Schedule Follow-up.</li></ul></td>
+                    </tr>
+
+                    <!-- Conditional Flows -->
+                    <tr><td colspan="4" style="background-color: #fff3cd; font-weight: bold;">Conditional Flow: If Candidate Response = "No"</td></tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Reason for "Not Interested"</strong></td>
+                        <td>Input: Dropdown<br>Required: Yes<br><strong>Options:</strong><br>- Not actively looking<br>- Already working and happy<br>- Only open to permanent roles<br>- Not interested in current job location<br>- Salary not matching expectations<br>- Already got offer / interview pipeline</td>
+                        <td>The selected reason triggers a specific sub-flow.<ul class="behavior-list"><li><strong>If "Only open to permanent roles", "Not interested...", or "Salary not matching...":</strong> Shows the nested <strong>RecruiterForm</strong>.</li><li><strong>If "Already got offer / interview pipeline":</strong> Shows the <strong>Offer/Interview Pipeline</strong> section.</li><li><strong>If "Not actively looking" or "Already working and happy":</strong> Shows the <strong>Close Interaction</strong> section.</li></ul></td>
+                    </tr>
+                    <tr><td colspan="4" style="background-color: #fff3cd; font-weight: bold;">Conditional Flow: If Candidate Response = "Asked to call later"</td></tr>
+                    <tr><td>6</td><td><strong>Schedule Follow-up</strong></td><td>Input: Date + Time<br>Required: Yes</td><td>Shows date and time fields. On submission, stores the scheduled date/time and hides other sections.</td></tr>
+                    <tr><td colspan="4" style="background-color: #fff3cd; font-weight: bold;">Conditional Flow: If Candidate Response = "No response / Wrong Number" or "Disconnected"</td></tr>
+                    <tr><td>7</td><td><strong>Close Interaction</strong></td><td>Input: Radio Buttons<br>Required: Yes<br><strong>Options:</strong><br>- FTE pipeline<br>- Passive pipeline<br>- Immediate match (if any)</td><td>Shows options to mark the interaction status. No further form sections are shown.</td></tr>
+
+                    <!-- Nested RecruiterForm -->
+                    <tr><td colspan="4" style="background-color: #e9f7ef; font-weight: bold;">Trigger for Nested Form: RecruiterForm</td></tr>
+                    <tr><td>8</td><td><strong>Show RecruiterForm</strong></td><td colspan="2"><strong>Triggered When:</strong><br>- Candidate response is "Yes".<br>- Candidate response is "No" AND reason is "Only open to permanent roles", "Not interested in current job location", or "Salary not matching expectations".<br><strong>Behavior:</strong> Shows the entire nested form below to collect detailed candidate info.</td></tr>
+                    
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 1: Candidate's Education</td></tr>
+                    <tr><td>9</td><td><strong>Select all education levels completed</strong></td><td>Input: Checkboxes<br>Options: SSC, Intermediate, Diploma, Graduation, PG</td><td>On selection, shows dropdowns for each selected level with options: Both (default), Regular, Correspondence.</td></tr>
+                    <tr><td>10</td><td><strong>Academic Program Type</strong></td><td>Input: Radio Buttons<br>Options: Regular, Non-Regular</td><td>If "Non-Regular", shows a text input for remarks (e.g., "Distance education, Gap reason").</td></tr>
+                    <tr><td>11</td><td><strong>Highest Qualification & Completion Date</strong></td><td>Input: Text & Month Picker<br>Required: Yes</td><td>Shows only after selecting an academic program type.</td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 2: Marital Status</td></tr>
+                    <tr><td>12</td><td><strong>Marital Status</strong></td><td>Input: Radio Buttons<br>Required: Yes<br>Options: Married, Unmarried</td><td>Shown after entering highest qualification. Required for relocation planning.</td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 3: Experience & Relocation</td></tr>
+                    <tr><td>13</td><td><strong>Total Experience</strong></td><td>Input: Text</td><td>Free text input.</td></tr>
+                    <tr><td>14</td><td><strong>Relevant Experience</strong></td><td>Input: Text</td><td>Free text input.</td></tr>
+                    <tr><td>15</td><td><strong>Current City</strong></td><td>Input: Text</td><td>Free text input.</td></tr>
+                    <tr><td>16</td><td><strong>Job Location</strong></td><td>Input: Text</td><td>Free text input.</td></tr>
+                    <tr><td>17</td><td><strong>Is this Job Location okay for you?</strong></td><td>Input: Radio Buttons<br>Options: Yes, No</td><td><ul class="behavior-list"><li><strong>If Yes and same as current city:</strong> Shows prompt: "Great! Let's move ahead with your Salary Details."</li><li><strong>If Yes and different city:</strong> Shows Relocation Questions (Step 4).</li><li><strong>If No:</strong> Shows Preferred Job Location & Remarks fields.</li></ul></td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 4: Relocation Questions (if applicable)</td></tr>
+                    <tr><td>18</td><td><strong>Why are you planning to relocate?</strong></td><td>Input: Text</td><td>Free text input.</td></tr>
+                    <tr><td>19</td><td><strong>Can your family relocate too?</strong></td><td>Input: Dropdown (Yes/No)</td><td>Free selection.</td></tr>
+                    <tr><td>20</td><td><strong>Will you relocate alone initially?</strong></td><td>Input: Dropdown (Yes/No)</td><td>Free selection.</td></tr>
+                    <tr><td>21</td><td><strong>How do you plan to move?</strong></td><td>Input: Textarea</td><td>Free text input.</td></tr>
+                    <tr><td>22</td><td><strong>Do you need company support for relocation?</strong></td><td>Input: Dropdown (Yes/No)</td><td>Free selection.</td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 5: Salary Details</td></tr>
+                    <tr><td>23</td><td><strong>Current CTC (Per Month)</strong></td><td>Input: Number</td><td>Free text input.</td></tr>
+                    <tr><td>24</td><td><strong>Take Home (Per Month)</strong></td><td>Input: Number</td><td>Free text input.</td></tr>
+                    <tr><td>25</td><td><strong>Expected CTC / Offered Salary (Per Month)</strong></td><td>Input: Number</td><td>Free text input.</td></tr>
+                    <tr><td>26</td><td><strong>Variable Salary (Per Month)</strong></td><td>Input: Number</td><td>Free text input.</td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 6: Work Status & Offer Details</td></tr>
+                    <tr><td>27</td><td><strong>Work Status</strong></td><td>Input: Dropdown<br>Required: Yes<br>Options: Working, Not Working, Fresher</td><td><ul class="behavior-list"><li><strong>If Working:</strong> Shows Client/Payroll Company, Notice Period, Dates, Status, Resignation Plan.</li><li><strong>If Not Working:</strong> Shows Start/Last Working/Expected Joining Date.</li><li><strong>If Fresher:</strong> Shows Internship questions.</li></ul></td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 7: Resignation Reason (if Working)</td></tr>
+                    <tr><td>28</td><td><strong>Reason for Job Changing</strong></td><td>Input: Dropdown<br>Options: Bench, No Project, Career Growth, etc.</td><td>If "Other" is selected, shows an input to specify a custom reason.</td></tr>
+                    <tr><td>29</td><td><strong>Do You Have Resignation Proof?</strong></td><td>Input: Dropdown (Yes/No)</td><td>If "Yes", allows file upload. If "No", shows a remarks input field.</td></tr>
+
+                    <tr><td colspan="4" style="background-color: #f1f3f5; font-weight: bold;">Nested Form Step 8: Offer/Interview Pipeline (if Working)</td></tr>
+                    <tr><td>30</td><td><strong>Do You Have Any Offers in Hand?</strong></td><td>Input: Dropdown (Yes/No)</td><td>If "Yes", shows an input for details and allows file upload for the offer proof.</td></tr>
+                    <tr><td>31</td><td><strong>Interviews in Pipeline</strong></td><td>Input: Dropdown (Yes/No)</td><td>If "Yes", shows an input for interview company names.</td></tr>
+                    <tr><td>32</td><td><strong>Why Are You Interested in This Job?</strong></td><td>Input: Textarea</td><td>Free text input.</td></tr>
+
+                    <!-- Final Conditional Flows -->
+                    <tr><td colspan="4" style="background-color: #fff3cd; font-weight: bold;">Conditional Flow: If Response="No" and Reason="Already got offer / interview pipeline"</td></tr>
+                    <tr><td>33</td><td><strong>Skill is critical. Try to pitch better role?</strong></td><td>Input: Radio Buttons (Yes/No)</td><td><ul class="behavior-list"><li><strong>If Yes:</strong> Shows Reference Check section.</li><li><strong>If No:</strong> Hides both RecruiterForm and Reference Check.</li></ul></td></tr>
+                    <tr><td>34</td><td><strong>Reference Check (if pitching better role)</strong></td><td>Input: Radio Buttons (Yes/No)</td><td>If "Yes", shows inputs for Reference Name and Phone Number. If "No", hides both.</td></tr>
+
+                    <!-- Final Actions -->
+                    <tr><td colspan="4" style="background-color: #e9ecef; font-weight: bold;">Final Actions</td></tr>
+                    <tr><td>35-36</td><td><strong>Schedule Follow-up</strong></td><td>Input: Date Picker, Time Picker</td><td>Free date and time selection.</td></tr>
+                    <tr><td>37</td><td><strong>Close Interaction</strong></td><td>Input: Radio Buttons<br>Options: FTE pipeline, Passive pipeline, Immediate match</td><td>Allows recruiter to categorize the lead.</td></tr>
+                    <tr><td>38</td><td><strong>Submit for Lead Review</strong></td><td>Button: Blue, full-width</td><td>Submits the form. In a real app, this would send data to the backend, log to CRM, update candidate status, and schedule follow-ups.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="backend-info">
+            <h2>Backend & Database Structure</h2>
+            <div class="info-box">
+                <p><strong>To the Backend Team:</strong> The following comprehensive JSON structure is recommended. It combines all form parts into a single, coherent object that can be stored in a database document, accounting for all conditional logic as detailed in the workflow.</p>
+            </div>
+            <h3>Comprehensive Candidate Call JSON Structure - "Yes" Scenario</h3>
+            <pre><code>{
+  "callLog": {
+    "recruiterId": "recruiter_001",
+    "callId": "call_abc123",
+    "timestamp": "2025-07-21T10:30:00Z"
+  },
+  "initialInfo": {
+    "candidateName": "Priya Sharma",
+    "contactNumber": "9876543210",
+    "email": "priya.sharma@example.com"
+  },
+  "candidateResponse": {
+    "status": "Yes", // Values: Yes, No, No response / Wrong Number, Disconnected, Asked to call later
+    "notInterestedReason": null, // Populated if status is "No"
+    "followUpDateTime": null // Populated if status is "Asked to call later"
+  },
+  "pipelinePitch": { // Populated if reason is "Already got offer..."
+    "pitchBetterRole": "No", // Yes, No
+    "referenceCheck": null // Object populated if pitch is "Yes"
+  },
+  "detailedProfile": { // This entire object is conditional on the response
+    "education": {
+      "levels": {
+        "SSC": "Regular",
+        "Intermediate": "Regular",
+        "Graduation": "Regular"
+      },
+      "academicProgramType": "Regular",
+      "remarks": null,
+      "highestQualification": "B.Tech in Computer Science",
+      "completionDate": "2021-05"
+    },
+    "personal": {
+      "maritalStatus": "Unmarried",
+      "experience": {
+        "total": "3 years",
+        "relevant": "3 years"
+      }
+    },
+    "location": {
+      "currentCity": "Bengaluru",
+      "jobLocation": "Hyderabad",
+      "isLocationOk": "Yes",
+      "relocation": { // Populated if currentCity !== jobLocation
+        "reason": "Excited about the opportunity and company culture in Hyderabad.",
+        "familyRelocate": "No",
+        "relocateAloneInitially": "Yes",
+        "movePlan": "Will initially move to a PG, then find an apartment.",
+        "supportNeeded": "Yes"
+      }
+    },
+    "compensation": {
+      "currentCTC": 1200000,
+      "takeHome": 85000,
+      "variable": 100000,
+      "expectedCTC": 1600000
+    },
+    "employment": {
+      "workStatus": "Working",
+      "details": { // Populated if "Working"
+        "clientCompany": "Innovate Corp",
+        "payrollCompany": "Innovate Corp",
+        "startDate": "2021-06-15",
+        "estimatedLWD": "2025-09-20",
+        "expectedJoiningDate": "2025-09-23",
+        "noticePeriod": "60 Days",
+        "noticeStatus": "Yet to resign",
+        "resignationPlan": "Will resign upon receiving the offer letter."
+      }
+    },
+    "motivations": {
+      "reasonForChange": "Career Growth",
+      "customReason": null,
+      "resignationProof": {
+        "hasProof": "No",
+        "remarks": "Can be provided after resignation."
+      }
+    },
+    "pipeline": {
+      "offersInHand": {
+        "hasOffers": "No",
+        "details": null
+      },
+      "interviews": {
+        "hasInterviews": "Yes",
+        "companyNames": "Tech Giant, Fast-paced Startup"
+      }
+    },
+    "interestInJob": "The project described aligns perfectly with my skills in cloud computing and offers a leadership path."
+  },
+  "closing": {
+    "status": "FTE pipeline", // FTE pipeline, Passive pipeline, Immediate match
+    "submitted": true
+  }
+}</code></pre>
+            <h3>Comprehensive Candidate Call JSON Structure - "No" Scenario</h3>
+            <pre><code>{
+  "callLog": {
+    "recruiterId": "recruiter_002",
+    "callId": "call_def456",
+    "timestamp": "2025-07-22T11:00:00Z"
+  },
+  "initialInfo": {
+    "candidateName": "Amit Kumar",
+    "contactNumber": "9988776655",
+    "email": "amit.kumar@example.com"
+  },
+  "candidateResponse": {
+    "status": "No",
+    "notInterestedReason": "Already got offer / interview pipeline",
+    "followUpDateTime": null
+  },
+  "pipelinePitch": {
+    "pitchBetterRole": "Yes",
+    "referenceCheck": {
+      "hasReference": "Yes",
+      "referenceName": "Sunita Rao",
+      "referencePhoneNumber": "9123456789"
+    }
+  },
+  "detailedProfile": null, // The detailed profile is not collected in this scenario
+  "closing": {
+    "status": "Passive pipeline",
+    "submitted": true
+  }
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function getFieldsAsData() {
+            return [
+                { ID: 1, Section: 'Initial Form', Field: 'Candidate Name', Type: 'Text' },
+                { ID: 2, Section: 'Initial Form', Field: 'Contact Number', Type: 'Tel' },
+                { ID: 3, Section: 'Initial Form', Field: 'Email', Type: 'Email' },
+                { ID: 4, Section: 'Response', Field: 'Are you currently looking for a job change?', Type: 'Radio' },
+                { ID: 5, Section: 'Response Flow', Field: 'Reason for "Not Interested"', Type: 'Dropdown' },
+                { ID: 6, Section: 'Response Flow', Field: 'Schedule Follow-up', Type: 'Date/Time' },
+                { ID: 7, Section: 'Response Flow', Field: 'Close Interaction', Type: 'Radio' },
+                { ID: 8, Section: 'Nested Form Trigger', Field: 'Show RecruiterForm', Type: 'Behavior' },
+                { ID: 9, Section: 'Education', Field: 'Select all education levels completed', Type: 'Checkboxes' },
+                { ID: 10, Section: 'Education', Field: 'Academic Program Type', Type: 'Radio' },
+                { ID: 11, Section: 'Education', Field: 'Highest Qualification & Completion Date', Type: 'Text & Month' },
+                { ID: 12, Section: 'Personal', Field: 'Marital Status', Type: 'Radio' },
+                { ID: 13, Section: 'Experience', Field: 'Total Experience', Type: 'Text' },
+                { ID: 14, Section: 'Experience', Field: 'Relevant Experience', Type: 'Text' },
+                { ID: 15, Section: 'Location', Field: 'Current City', Type: 'Text' },
+                { ID: 16, Section: 'Location', Field: 'Job Location', Type: 'Text' },
+                { ID: 17, Section: 'Location', Field: 'Is this Job Location okay for you?', Type: 'Radio' },
+                { ID: 18, Section: 'Relocation', Field: 'Why are you planning to relocate?', Type: 'Text' },
+                { ID: 19, Section: 'Relocation', Field: 'Can your family relocate too?', Type: 'Dropdown' },
+                { ID: 20, Section: 'Relocation', Field: 'Will you relocate alone initially?', Type: 'Dropdown' },
+                { ID: 21, Section: 'Relocation', Field: 'How do you plan to move?', Type: 'Textarea' },
+                { ID: 22, Section: 'Relocation', Field: 'Do you need company support for relocation?', Type: 'Dropdown' },
+                { ID: 23, Section: 'Salary', Field: 'Current CTC (Per Month)', Type: 'Number' },
+                { ID: 24, Section: 'Salary', Field: 'Take Home (Per Month)', Type: 'Number' },
+                { ID: 25, Section: 'Salary', Field: 'Expected CTC / Offered Salary (Per Month)', Type: 'Number' },
+                { ID: 26, Section: 'Salary', Field: 'Variable Salary (Per Month)', Type: 'Number' },
+                { ID: 27, Section: 'Work Status', Field: 'Work Status', Type: 'Dropdown' },
+                { ID: 28, Section: 'Work Status', Field: 'Reason for Job Changing', Type: 'Dropdown' },
+                { ID: 29, Section: 'Work Status', Field: 'Do You Have Resignation Proof?', Type: 'Dropdown' },
+                { ID: 30, Section: 'Pipeline', Field: 'Do You Have Any Offers in Hand?', Type: 'Dropdown' },
+                { ID: 31, Section: 'Pipeline', Field: 'Interviews in Pipeline', Type: 'Dropdown' },
+                { ID: 32, Section: 'Pipeline', Field: 'Why Are You Interested in This Job?', Type: 'Textarea' },
+                { ID: 33, Section: 'Pipeline Pitch', Field: 'Skill is critical. Try to pitch better role?', Type: 'Radio' },
+                { ID: 34, Section: 'Pipeline Pitch', Field: 'Do you have any references for this job?', Type: 'Radio' },
+                { ID: 35, Section: 'Follow-up', Field: 'Date', Type: 'Date Picker' },
+                { ID: 36, Section: 'Follow-up', Field: 'Time', Type: 'Time Picker' },
+                { ID: 37, Section: 'Closing', Field: 'Mark as', Type: 'Radio' },
+                { ID: 38, Section: 'Submission', Field: 'Submit for Lead Review', Type: 'Button' }
+            ];
+        }
+
+        function downloadAsExcel() {
+            const data = getFieldsAsData();
+            const worksheet = XLSX.utils.json_to_sheet(data);
+            worksheet['!cols'] = [{ wch: 5 }, { wch: 25 }, { wch: 50 }, { wch: 20 }];
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Recruiter Call Workflow");
+            XLSX.writeFile(workbook, "recruiter_call_form_workflow.xlsx");
+        }
+    </script>
+
+</body>
+</html>
